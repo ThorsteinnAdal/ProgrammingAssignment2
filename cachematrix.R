@@ -5,7 +5,8 @@
 # Function 2: cacheSolve(matrix)        ...  a function for solving a matrix and storing the solution in the object
 # Function 3: test.cacheMatrix()        ...  a rudimentary testing, otherwise I'll forget how this works
 #########################################
-
+# A code implementing the method
+###############################
 
 
 ###############################
@@ -181,3 +182,20 @@ test.cacheMatrix <-function() {
     message("------------------------")
     message("")
     }
+
+######################################
+## code implementation
+#####################################
+
+stored_mat <- makeCacheMatrix(foo)
+
+mat <- matrix(runif(16,1,100),4,4)
+stored_mat$set(mat)
+
+cacheSolve(mat)
+cacheSolve(mat)
+
+inv_mat <- stored_mat$getInv()
+
+mat %*% inf_mat  # should show a close-to diagonal matrix
+
